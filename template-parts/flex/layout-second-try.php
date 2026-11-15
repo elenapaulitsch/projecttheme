@@ -1,0 +1,27 @@
+<?php
+/**
+ * Second Try Layout
+ * Felder: image (ID), titel (text), body (text)
+ */
+$img_id   = get_sub_field('image');
+$headline = get_sub_field('titel');
+$body     = get_sub_field('body');
+
+?>
+<div class="row align-items-center g-5">
+  <div class="col-md-6">
+    <?php
+    if ($img_id) {
+      echo wp_get_attachment_image($img_id, 'large', false, [
+        'class'    => 'img-fluid rounded',
+        'loading'  => 'lazy',
+        'decoding' => 'async',
+      ]);
+    }
+    ?>
+  </div>
+  <div class="col-md-6">
+    <?php if ($headline): ?><h2 class="mb-3"><?php echo esc_html($headline); ?></h2><?php endif; ?>
+    <?php if ($body): ?><p><?php echo esc_html($body); ?></p><?php endif; ?>
+  </div>
+</div>
