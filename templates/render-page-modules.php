@@ -80,6 +80,8 @@ while (have_rows('page_modules')) : the_row();
 
     case 'project_highlight':
       get_template_part('template-parts/flex/layout', 'project-highlight'); break;
+    case 'first_try':
+      get_template_part('template-parts/flex/layout', 'first-try'); break;
   }
 
   if (function_exists('section_close')) {

@@ -39,3 +39,20 @@
 .projecttheme-image-slider .carousel-item img {
   object-fit: cover;
 }
+
+/*** First Try ***/
+.first-try__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.first-try__title {
+  margin-bottom: 0.75rem;
+  color: var(--theme-color-primary);
+}
+
+.first-try__body {
+  margin-bottom: 1.5rem;
+}
