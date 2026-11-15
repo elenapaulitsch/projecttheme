@@ -1,0 +1,31 @@
+/*
+ * Constants
+ *
+ * Keep colors and reusable theme values here.
+ */
+:root {
+  --theme-color-primary: rgb(35, 147, 130);
+  --theme-color-secondary: #4a4d4d;
+  --theme-transition: all 0.3s ease-in-out;
+}
+
+:root {
+  --theme-color-primary: #4C674C;
+  --theme-color-secondary: #000000;
+  --theme-tertiary: rgb(255,255,255);
+  --theme-color-accent: rgb(255,255,255);
+  --theme-color-accent-2: rgb(0, 0, 0);
+
+  --theme-transition: all 0.3s ease-in-out;
+
+  --theme-font-family: 'Instrument-sans', Arial, sans-serif;
+  --theme-font-heading: 'Instrument-Serif', Arial, sans-serif;
+
+  --theme-font-size-base: 16px;
+  --theme-line-height-body:1.5;
+  --theme-line-height-heading:1.1;
+
+  --theme-font-size-heading: 200px;
+  --theme-font-size-heading-secondary: 64px;
+  
+}
