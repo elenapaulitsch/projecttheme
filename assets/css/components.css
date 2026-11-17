@@ -5,6 +5,45 @@
   display: block;
 }
 
+.hero_basic {
+  padding-block: 0 !important;
+}
+
+.hero_basic > .container-lg {
+  max-width: none;
+  padding: 0;
+}
+
+.hero-basic {
+  display: flex;
+  min-height: min(80vh, 54rem);
+  align-items: center;
+  padding: clamp(3rem, 8vw, 7rem) max(1.5rem, calc((100vw - 1200px) / 2));
+  background-color: var(--theme-color-primary);
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+}
+
+.hero-basic__content {
+  width: min(100%, 48rem);
+}
+
+.hero-basic__kicker {
+  margin-bottom: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-basic__title {
+  margin-bottom: 1.5rem;
+}
+
+.hero-basic__text {
+  max-width: 40rem;
+  margin-bottom: 2rem;
+}
+
 /*** Button ***/
 
 .btn-primary,

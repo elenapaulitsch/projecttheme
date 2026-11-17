@@ -36,6 +36,9 @@ while (have_rows('page_modules')) : the_row();
     case 'intro':
       get_template_part('template-parts/flex/layout', 'intro'); break;
 
+    case 'hero_basic':
+      get_template_part('template-parts/flex/layout', 'hero-basic'); break;
+
     case 'text_1col':
       get_template_part('template-parts/flex/layout', 'text-1col'); break;
 

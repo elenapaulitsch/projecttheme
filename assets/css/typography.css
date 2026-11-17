@@ -23,7 +23,7 @@
   font-family: "Instrument-sans";
   font-style: normal;
   font-weight: 700;
-  src: url('../fonts/assets/fonts/instrument-sans-700.woff2') format('woff2');
+  src: url('../fonts/instrument-sans-v4-latin-regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -31,7 +31,7 @@
   font-family: "Instrument-Serif";
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/assets/fonts/instrument-serif-regular.woff2') format('woff2');
+  src: url('../fonts/instrument-serif-v5-latin-regular.woff2') format('woff2');
 }
 
 html,
