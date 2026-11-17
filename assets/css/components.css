@@ -15,33 +15,55 @@
 }
 
 .hero-basic {
-  display: flex;
+  display: grid;
   min-height: min(80vh, 54rem);
-  align-items: center;
-  padding: clamp(3rem, 8vw, 7rem) max(1.5rem, calc((100vw - 1200px) / 2));
+  place-items: center;
+  padding: 2rem;
   background-color: var(--theme-color-primary);
   background-position: center;
   background-size: cover;
   color: #fff;
-}
-
-.hero-basic__content {
-  width: min(100%, 48rem);
-}
-
-.hero-basic__kicker {
-  margin-bottom: 1rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  text-align: center;
 }
 
 .hero-basic__title {
+  max-width: 100%;
+  margin: 0;
+  font-size: clamp(4rem, 13.89vw, var(--theme-font-size-heading));
+  line-height: 0.95;
+}
+
+.panel-image-content {
+  overflow: hidden;
+  background-color: #f3f2ee;
+}
+
+.panel-image-content__media {
+  min-height: 24rem;
+}
+
+.panel-image-content__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 24rem;
+  object-fit: cover;
+}
+
+.panel-image-content__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(2rem, 5vw, 5rem);
+}
+
+.panel-image-content__headline {
   margin-bottom: 1.5rem;
 }
 
-.hero-basic__text {
-  max-width: 40rem;
-  margin-bottom: 2rem;
+.panel-image-content__text {
+  margin-bottom: 1.5rem;
 }
 
 /*** Button ***/
