@@ -116,10 +116,78 @@
   flex-direction: row;
 }
 
+.panel-image-double {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 2rem);
+  width: 100vw;
+  max-width: none;
+  margin-right: calc(50% - 50vw);
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+}
+
+.panel-image-double__media {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+
+.panel-image-double__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.panel-content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  padding: clamp(2.5rem, 6vw, 6rem);
+  background-color: var(--theme-tertiary);
+  color: var(--theme-color-accent-2);
+  font-family: var(--theme-font-family);
+}
+
+.panel-content__kicker {
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.panel-content__headline {
+  margin: 0;
+  font-family: var(--theme-font-heading);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: var(--theme-line-height-heading);
+}
+
+.panel-content__body {
+  max-width: 42rem;
+}
+
+.panel-content__text {
+  font-size: var(--theme-font-size-base);
+  line-height: var(--theme-line-height-body);
+}
+
+.panel-content__link {
+  display: inline-block;
+  margin-top: 1.25rem;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 @media (max-width: 767.98px) {
   .panel-image-content__media,
   .panel-image-content__body {
     width: 100%;
+  }
+
+  .panel-content {
+    gap: 1.5rem;
   }
 }
 
@@ -191,7 +259,8 @@
 .card-grid__headline {
   margin-bottom: clamp(2rem, 4vw, 4rem);
   font-family: var(--theme-font-heading);
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.1;
 }
 
 .card-grid__media {
@@ -211,13 +280,36 @@
 }
 
 .card-grid__title {
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
   font-family: var(--theme-font-heading);
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-size: 1rem;
+  line-height: 1.1;
 }
 
 .card-grid__text {
   max-width: 34rem;
+  margin-bottom: 0.25rem;
+  font-family: var(--theme-font-family);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.card-grid__bold-text {
+  max-width: 34rem;
+  font-family: var(--theme-font-family);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.card-grid__text > :first-child,
+.card-grid__bold-text > :first-child {
+  margin-top: 0;
+}
+
+.card-grid__text > :last-child,
+.card-grid__bold-text > :last-child {
+  margin-bottom: 0;
 }
 
 .card-grid__link {

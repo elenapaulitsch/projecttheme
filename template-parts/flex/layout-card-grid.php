@@ -18,6 +18,7 @@ $cards = get_sub_field('cards') ?: [];
         $image_id = $card['image'] ?? 0;
         $title = $card['title'] ?? '';
         $text = $card['text'] ?? '';
+        $bold_text = $card['bold_text'] ?? '';
         $link = $card['link'] ?? [];
         $link_url = is_array($link) ? ($link['url'] ?? '') : '';
         $link_title = is_array($link) ? ($link['title'] ?? '') : '';
@@ -36,7 +37,7 @@ $cards = get_sub_field('cards') ?: [];
             </div>
           <?php endif; ?>
 
-          <?php if ($title || $text || $link_url) : ?>
+          <?php if ($title || $text || $bold_text || $link_url) : ?>
             <div class="card-grid__body">
               <?php if ($title) : ?>
                 <h3 class="card-grid__title"><?php echo esc_html($title); ?></h3>
@@ -44,6 +45,10 @@ $cards = get_sub_field('cards') ?: [];
 
               <?php if ($text) : ?>
                 <div class="card-grid__text rte"><?php echo wp_kses_post($text); ?></div>
+              <?php endif; ?>
+
+              <?php if ($bold_text) : ?>
+                <div class="card-grid__bold-text rte"><?php echo wp_kses_post($bold_text); ?></div>
               <?php endif; ?>
 
               <?php if ($link_url) : ?>

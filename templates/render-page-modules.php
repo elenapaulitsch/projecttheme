@@ -20,7 +20,7 @@ while (have_rows('page_modules')) : the_row();
     'show_on'    => get_sub_field('show-on') ?: 'everywhere',
   ];
 
-  if ($opts['name'] === 'hero_basic_bild') {
+  if (in_array($opts['name'], ['hero_basic_bild', 'panel_image_double'], true)) {
     $opts['container'] = 'none';
   }
 
@@ -57,6 +57,12 @@ while (have_rows('page_modules')) : the_row();
 
     case 'panel_image_content_reverse':
       get_template_part('template-parts/flex/layout', 'panel-image-content-reverse'); break;
+
+    case 'panel_image_double':
+      get_template_part('template-parts/flex/layout', 'panel-image-double'); break;
+
+    case 'panel_content':
+      get_template_part('template-parts/flex/layout', 'panel-content'); break;
 
     case 'text_1col':
       get_template_part('template-parts/flex/layout', 'text-1col'); break;
