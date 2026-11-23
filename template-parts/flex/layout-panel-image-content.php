@@ -1,18 +1,12 @@
 <?php
 /**
  * Partial: Panel Image Content
- * ACF fields: image, headline, text, cta.
+ * ACF fields: image, headline, text.
  */
 
 $image_id = get_sub_field('image');
 $headline = get_sub_field('headline');
 $text = get_sub_field('text');
-$cta = get_sub_field('cta');
-
-$cta_url = is_array($cta) && !empty($cta['url']) ? $cta['url'] : '';
-$cta_title = is_array($cta) && !empty($cta['title']) ? $cta['title'] : '';
-$cta_target = is_array($cta) && !empty($cta['target']) ? $cta['target'] : '_self';
-$cta_rel = $cta_target === '_blank' ? 'noopener noreferrer' : '';
 ?>
 <div class="panel-image-content row g-0 align-items-stretch">
   <?php if ($image_id) : ?>
@@ -34,15 +28,6 @@ $cta_rel = $cta_target === '_blank' ? 'noopener noreferrer' : '';
 
     <?php if ($text) : ?>
       <div class="panel-image-content__text rte"><?php echo wp_kses_post($text); ?></div>
-    <?php endif; ?>
-
-    <?php if ($cta_url) : ?>
-      <a class="btn btn-primary panel-image-content__cta"
-         href="<?php echo esc_url($cta_url); ?>"
-         target="<?php echo esc_attr($cta_target); ?>"
-         rel="<?php echo esc_attr($cta_rel); ?>">
-        <?php echo esc_html($cta_title ?: __('Mehr erfahren', 'projecttheme')); ?>
-      </a>
     <?php endif; ?>
   </div>
 </div>

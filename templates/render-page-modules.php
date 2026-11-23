@@ -20,6 +20,10 @@ while (have_rows('page_modules')) : the_row();
     'show_on'    => get_sub_field('show-on') ?: 'everywhere',
   ];
 
+  if ($opts['name'] === 'hero_basic_bild') {
+    $opts['container'] = 'none';
+  }
+
   // Öffne Section-Hülle nur, wenn Helper existieren – sonst simple Wrapper
   if (function_exists('section_open')) {
     section_open($opts);
@@ -39,8 +43,20 @@ while (have_rows('page_modules')) : the_row();
     case 'hero_basic':
       get_template_part('template-parts/flex/layout', 'hero-basic'); break;
 
+    case 'hero_basic_bild':
+      get_template_part('template-parts/flex/layout', 'hero-basic-bild'); break;
+
+    case 'card_grid_image':
+      get_template_part('template-parts/flex/layout', 'card-grid-image'); break;
+
+    case 'card_grid':
+      get_template_part('template-parts/flex/layout', 'card-grid'); break;
+
     case 'panel_image_content':
       get_template_part('template-parts/flex/layout', 'panel-image-content'); break;
+
+    case 'panel_image_content_reverse':
+      get_template_part('template-parts/flex/layout', 'panel-image-content-reverse'); break;
 
     case 'text_1col':
       get_template_part('template-parts/flex/layout', 'text-1col'); break;

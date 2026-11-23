@@ -12,23 +12,15 @@
 
 @font-face {
   font-display: swap;
-  font-family: "Instrument-sans";
+  font-family: "Instrument Sans";
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/assets/fonts/instrument-sans-regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: "Instrument-sans";
-  font-style: normal;
-  font-weight: 700;
   src: url('../fonts/instrument-sans-v4-latin-regular.woff2') format('woff2');
 }
 
 @font-face {
   font-display: swap;
-  font-family: "Instrument-Serif";
+  font-family: "Instrument Serif";
   font-style: normal;
   font-weight: 400;
   src: url('../fonts/instrument-serif-v5-latin-regular.woff2') format('woff2');
@@ -44,7 +36,7 @@ body {
 
 body {
   color: var(--theme-color-secondary);
-  font-family: var(--theme-font-body);
+  font-family: var(--theme-font-family);
   font-size: var(--theme-font-size-base);
   line-height: var(--theme-line-height-body);
 }
