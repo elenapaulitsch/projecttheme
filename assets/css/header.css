@@ -12,21 +12,17 @@ header {
   z-index: 1000;
   top: 0;
   left: 0;
-  padding: 1rem;
-}
-
-.site-branding {
-  order: 2;
+  padding: 0.5rem 1rem;
 }
 
 .main-navigation {
-  order: 1;
+  margin-left: auto;
 }
 
 @media (min-width: 767px) {
   header {
     position: relative;
-  padding: 2rem 3rem;
+  padding: 1rem 3rem;
   }
 }
 
