@@ -2,28 +2,109 @@
  * Footer
  */
 footer {
-  background-color: var(--theme-color-secondary);
-  display: flex;
-  color: #ffffff;
+  background-color: var(--theme-color-primary);
+  color: var(--theme-color-accent);
 }
 
-footer .footer-content {
+.footer-content.container-lg {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 3rem;
+  padding: 3rem 0;
+}
+
+.footer-socials {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 4rem 0 4rem;
+  gap: 1rem;
+}
+
+.footer-social-column {
+  display: flex;
   flex-direction: column;
-  gap: 2rem;
+  align-items: flex-start;
+  gap: 1.5rem;
 }
 
-@media (min-width: 767px) {
-  footer .footer-content{
-    flex-direction: row;
-    padding: 4rem 0 6rem;
-    gap: 0;
+.footer-branding a {
+  color: inherit;
+  font-family: var(--theme-font-heading);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.footer-social-icon {
+  display: inline-flex;
+  width: 1.25rem;
+  height: 1.25rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-social-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+.footer-social-icon .footer-social-dot,
+.footer-social-icon .footer-social-play {
+  fill: currentColor;
+  stroke: none;
+}
+
+.footer-social-icon text {
+  fill: currentColor;
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  stroke: none;
+}
+
+.footer-contact h2,
+.footer-navigation h2 {
+  margin: 0 0 1rem;
+  font-family: var(--theme-font-heading);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.footer-contact address {
+  font-style: normal;
+}
+
+.footer-contact p {
+  margin: 0 0 0.4rem;
+}
+
+.footer-contact a:hover,
+#footer-menu a:hover {
+  opacity: 0.7;
+}
+
+#footer-menu {
+  display: grid;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#main > section[id],
+#kontakte {
+  scroll-margin-top: 4rem;
+}
+
+@media (max-width: 767px) {
+  .footer-content.container-lg {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 0 2rem 2rem;
   }
-}
-
-.footer-logo img {
-  filter: brightness(0) invert(1);
 }

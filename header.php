@@ -14,7 +14,11 @@
 
   <header id="masthead" class="site-header">
     <div class="site-branding">
-      <?php get_template_part( 'template-parts/components/logo' ); ?>
+      <?php
+      $one_page = get_page_by_path( 'samsa' );
+      $header_logo_url = $one_page ? get_permalink( $one_page ) . '#hero-basic' : home_url( '/#hero-basic' );
+      get_template_part( 'template-parts/components/logo', null, array( 'url' => $header_logo_url ) );
+      ?>
 
     </div><!-- .site-branding -->
 

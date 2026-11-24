@@ -11,6 +11,63 @@ function _custom_theme_register_menu() {
 }
 add_action( 'init', '_custom_theme_register_menu' );
 
+function projecttheme_menu_item_anchor( $atts, $item ) {
+    $anchors = array(
+        'samsa'      => 'wer-ist-samsa',
+        'highlights' => 'unsere-highlights',
+        'weinguter'  => 'unsere-weingueter',
+        'weingueter' => 'unsere-weingueter',
+        'herkunft'   => 'herkunft-unserer-weine',
+        'standorte'  => 'standorte',
+        'kontakt'    => 'kontakte',
+    );
+    $label = sanitize_title( wp_strip_all_tags( $item->title ) );
+
+    if ( isset( $anchors[ $label ] ) ) {
+        static $one_page_url = null;
+
+        if ( null === $one_page_url ) {
+            $one_page = get_page_by_path( 'samsa' );
+            $one_page_url = $one_page ? get_permalink( $one_page ) : home_url( '/' );
+        }
+
+        $atts['href'] = $one_page_url . '#' . $anchors[ $label ];
+    }
+
+    return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'projecttheme_menu_item_anchor', 10, 2 );
+
+function projecttheme_order_one_page_menu_items( $items, $args ) {
+    $is_main_menu   = isset( $args->theme_location ) && 'menu-main' === $args->theme_location;
+    $is_footer_menu = isset( $args->menu_id ) && 'footer-menu' === $args->menu_id;
+
+    if ( ! $is_main_menu && ! $is_footer_menu ) {
+        return $items;
+    }
+
+    $menu_order = array( 'samsa', 'highlights', 'weinguter', 'weingueter', 'herkunft', 'standorte', 'kontakt' );
+    usort(
+        $items,
+        function ( $first, $second ) use ( $menu_order ) {
+            $first_order  = array_search( sanitize_title( wp_strip_all_tags( $first->title ) ), $menu_order, true );
+            $second_order = array_search( sanitize_title( wp_strip_all_tags( $second->title ) ), $menu_order, true );
+
+            if ( false === $first_order ) {
+                $first_order = count( $menu_order ) + $first->menu_order;
+            }
+            if ( false === $second_order ) {
+                $second_order = count( $menu_order ) + $second->menu_order;
+            }
+
+            return $first_order - $second_order;
+        }
+    );
+
+    return $items;
+}
+add_filter( 'wp_nav_menu_objects', 'projecttheme_order_one_page_menu_items', 10, 2 );
+
 function custom_setup() {
     // Images
     add_theme_support( 'post-thumbnails' );

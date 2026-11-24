@@ -8,6 +8,18 @@ if (!function_exists('have_rows') || !have_rows('page_modules')) {
   return;
 }
 
+$anchor_by_heading = [
+  'wer-ist-samsa' => 'wer-ist-samsa',
+  'unsere-highlights' => 'unsere-highlights',
+  'unsere-weinguter' => 'unsere-weingueter',
+  'unsere-weingueter' => 'unsere-weingueter',
+  'herkunft-unserer-weine' => 'herkunft-unserer-weine',
+  'standorte' => 'standorte',
+  'kontakt' => 'kontakte',
+  'kontakte' => 'kontakte',
+];
+$assigned_section_anchors = [];
+
 while (have_rows('page_modules')) : the_row();
 
   // Section-Optionen 
@@ -19,6 +31,31 @@ while (have_rows('page_modules')) : the_row();
     'id'         => get_sub_field('id-anchor') ?: '',
     'show_on'    => get_sub_field('show-on') ?: 'everywhere',
   ];
+
+  if (!$opts['id']) {
+    foreach (['title', 'headline', 'titel'] as $field_name) {
+      $heading = get_sub_field($field_name);
+      if (is_string($heading) && trim(wp_strip_all_tags($heading)) !== '') {
+        $heading_slug = sanitize_title(wp_strip_all_tags($heading));
+        if (isset($anchor_by_heading[$heading_slug]) && !isset($assigned_section_anchors[$anchor_by_heading[$heading_slug]])) {
+          $opts['id'] = $anchor_by_heading[$heading_slug];
+        }
+        break;
+      }
+    }
+  }
+
+  if (!$opts['id'] && 'google_map' === $opts['name'] && !isset($assigned_section_anchors['standorte'])) {
+    $opts['id'] = 'standorte';
+  }
+
+  if (!$opts['id'] && 'hero_basic' === $opts['name'] && !isset($assigned_section_anchors['hero-basic'])) {
+    $opts['id'] = 'hero-basic';
+  }
+
+  if ($opts['id']) {
+    $assigned_section_anchors[$opts['id']] = true;
+  }
 
   if (in_array($opts['name'], ['hero_basic_bild', 'panel_image_double'], true)) {
     $opts['container'] = 'none';
