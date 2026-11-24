@@ -44,7 +44,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    background: white;
+      background: var(--theme-color-primary);
+      color: var(--theme-color-accent);
   }
 
   .menu-toggle {
@@ -62,7 +63,7 @@
     width: 50px;
     position: absolute;
     top: 0.5rem;
-    right: 0.5rem;
+    left: 0.5rem;
     z-index: 100;
   }
 
